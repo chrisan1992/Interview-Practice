@@ -12,7 +12,7 @@ namespace Interview_Practice
         public bool isPalindrome(String s)
         {
             bool result = true;//result
-            //pointer to iterate the word
+            //pointer to iterate the word      
             int leftPointer = 0;
             int rightPointer = s.Length - 1;
 

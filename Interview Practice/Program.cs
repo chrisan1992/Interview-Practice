@@ -9,14 +9,23 @@ namespace Interview_Practice
         {
             Console.WriteLine("Hello World!");
 
+            MultiMap _multiMap = new MultiMap();
+            _multiMap.Add("1","uno");
+            _multiMap.Add("1","one");
+            _multiMap.Add("2", "dos");
+            _multiMap.Add("2", "two");
 
+            Console.WriteLine(_multiMap);
+
+            /*GenericArray<int> intArray = new GenericArray<int>();
+            GenericArray<string> stringArray = new GenericArray<string>();
             
 
             String s = "i like this program very much";
 
             Exercises ex = new Exercises();
 
-            ex.call();
+            //ex.call();
             //Console.WriteLine(ex.ReverseWordsInPlace(s.ToCharArray()));
             ex.NumberToColumns(27);
             //ex.HexToInteger("F");

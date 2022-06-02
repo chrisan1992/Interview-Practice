@@ -9,13 +9,17 @@ namespace Interview_Practice
         {
             Console.WriteLine("Hello World!");
 
-            MultiMap _multiMap = new MultiMap();
+            Exercises ex = new Exercises();
+            int[] array = new int[] {1,2,5,10,15,19,30,31,35 };
+            ex.BinarySearchArray(array,0,array.Length,31);
+
+            /*MultiMap _multiMap = new MultiMap();
             _multiMap.Add("1","uno");
             _multiMap.Add("1","one");
             _multiMap.Add("2", "dos");
             _multiMap.Add("2", "two");
 
-            Console.WriteLine(_multiMap);
+            Console.WriteLine(_multiMap);*/
 
             /*GenericArray<int> intArray = new GenericArray<int>();
             GenericArray<string> stringArray = new GenericArray<string>();

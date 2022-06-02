@@ -86,16 +86,16 @@ namespace Interview_Practice
             {//itterate on the string
                 if (s[end] == ' ')
                 {//if there is a blank space, need to revert previous word
-                    ReverseAt(s,start,end-1);
+                    ReverseAt(s, start, end - 1);
                     start = end + 1;//new word start
                 }
             }
 
             //reverse the last word
-            ReverseAt(s,start,s.Length-1);
+            ReverseAt(s, start, s.Length - 1);
 
             //reverse the entire sentence
-            ReverseAt(s, 0, s.Length-1);
+            ReverseAt(s, 0, s.Length - 1);
 
             return s;
         }
@@ -143,22 +143,22 @@ namespace Interview_Practice
 
             Dictionary<char, string> HexToBin = new Dictionary<char, string>();
             //se llena el dictionario
-            HexToBin.Add('0',"0000");
-            HexToBin.Add('1',"0001");
-            HexToBin.Add('2',"0010");
-            HexToBin.Add('3',"0011");
-            HexToBin.Add('4',"0100");
-            HexToBin.Add('5',"0101");
-            HexToBin.Add('6',"0110");
-            HexToBin.Add('7',"0111");
-            HexToBin.Add('8',"1000");
-            HexToBin.Add('9',"1001");
-            HexToBin.Add('A',"1010");
-            HexToBin.Add('B',"1011");
-            HexToBin.Add('C',"1100");
-            HexToBin.Add('D',"1101");
-            HexToBin.Add('E',"1110");
-            HexToBin.Add('F',"1111");
+            HexToBin.Add('0', "0000");
+            HexToBin.Add('1', "0001");
+            HexToBin.Add('2', "0010");
+            HexToBin.Add('3', "0011");
+            HexToBin.Add('4', "0100");
+            HexToBin.Add('5', "0101");
+            HexToBin.Add('6', "0110");
+            HexToBin.Add('7', "0111");
+            HexToBin.Add('8', "1000");
+            HexToBin.Add('9', "1001");
+            HexToBin.Add('A', "1010");
+            HexToBin.Add('B', "1011");
+            HexToBin.Add('C', "1100");
+            HexToBin.Add('D', "1101");
+            HexToBin.Add('E', "1110");
+            HexToBin.Add('F', "1111");
 
             foreach (char c in hex)
             {//convert each letter to binary
@@ -226,15 +226,15 @@ namespace Interview_Practice
         //4   10   3   5   7   1
         public int[] BubbleSort(int[] array)
         {
-            for (int i = 0; i < array.Length-1; ++i)
+            for (int i = 0; i < array.Length - 1; ++i)
             {
-                for (int j = 0; j < array.Length-1 - i; ++j)
+                for (int j = 0; j < array.Length - 1 - i; ++j)
                 {
-                    if (array[j] > array[j+1])
+                    if (array[j] > array[j + 1])
                     {
                         int temp = array[j];
-                        array[j] = array[j+1];
-                        array[j+1] = temp;
+                        array[j] = array[j + 1];
+                        array[j + 1] = temp;
                     }
                 }
 
@@ -244,7 +244,7 @@ namespace Interview_Practice
         }
 
 
-        public int[] SelectionSort(int [] array)
+        public int[] SelectionSort(int[] array)
         {
             for (int i = 0; i < array.Length; ++i)
             {
@@ -304,6 +304,41 @@ namespace Interview_Practice
             }
 
             return result;
+        }
+
+        /// <summary>
+        /// performs a binary search into an array
+        /// </summary>
+        /// <param name="array"></param>
+        /// <param name="start"></param>
+        /// <param name="end"></param>
+        /// <param name="item"></param>
+        /// <returns></returns>
+        public int BinarySearchArray(int[] array, int start, int end, int item)
+        {
+            if (start <= end)
+            {//check if the array pointers are valid
+                int pivot = (end + start) / 2;//pivot for the search
+                if (array[pivot] == item)
+                {//check if the pivot is the value
+                    return item;
+                }
+                else
+                {//the pivot is not the value
+                    if (item > array[pivot])
+                    {//the value is greater than array[pivot]
+                        //goest to the right
+                        BinarySearchArray(array, pivot, end, item);
+                    }
+                    else
+                    {//the value is less than array[pivot]
+                        //goes to the left
+                        BinarySearchArray(array, start, pivot, item);
+                    }
+                }
+            }
+
+            return -1;//item not found
         }
 
     }

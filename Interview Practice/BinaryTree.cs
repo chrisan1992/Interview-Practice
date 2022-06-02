@@ -153,6 +153,55 @@ namespace Interview_Practice
             }
         }
 
+        public int GetHeigth()
+        {
+            return GetHeigthR(this.root);
+        }
+
+        public int GetHeigthR(TreeNode node)
+        {
+            int leftHeigth = 1;//current node
+            int rightHeigth = 1;//current node
+
+            if (node.left != null)
+            { 
+                leftHeigth = GetHeigthR(node.left);
+            }
+            if (node.right != null)
+            {
+                rightHeigth = GetHeigthR(node.right);
+            }
+
+            return Math.Max(leftHeigth, rightHeigth);
+        }
+
+        public int NumLeafNodes()
+        {
+            return NumLeafNodesR(this.root);
+        }
+
+        public int NumLeafNodesR(TreeNode node)
+        {
+            int numLeafNodes = 0;
+            if (node.left == null && node.right == null)
+            {
+                //this is a leaf node
+                return 1;
+            }
+
+            if (node.left != null)
+            {
+                numLeafNodes = NumLeafNodesR(node.left);
+            }
+
+            if (node.right != null)
+            {
+                numLeafNodes += NumLeafNodesR(node.left);
+            }
+
+            return numLeafNodes;
+        }
+
     }
 
     public class TreeNode

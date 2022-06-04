@@ -328,12 +328,12 @@ namespace Interview_Practice
                     if (item > array[pivot])
                     {//the value is greater than array[pivot]
                         //goest to the right
-                        BinarySearchArray(array, pivot, end, item);
+                        return BinarySearchArray(array, pivot, end, item);
                     }
                     else
                     {//the value is less than array[pivot]
                         //goes to the left
-                        BinarySearchArray(array, start, pivot, item);
+                        return BinarySearchArray(array, start, pivot, item);
                     }
                 }
             }
